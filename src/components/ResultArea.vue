@@ -1,17 +1,22 @@
 <script setup lang="ts">
-import { content, fullResult, toggleMode, mode, applyResult, matches } from '~/logics'
 import { useClipboard } from '@vueuse/core'
+import { content, fullResult, toggleMode, mode, applyResult, matches, findRaw } from '~/logics'
 
-const {copy} = useClipboard()
+const { copy } = useClipboard()
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative overflow-hidden">
     <div class="w-1/2 h-full flex flex-col">
-      <div>
-        <div class="label">
-          TEXT
+      <div class="flex">
+        <div class="icon mr-4">
+          <carbon-text-align-justify class="ml-4" />
+          <div class="label">
+            TEXT
+          </div>
         </div>
+
+        <div class="flex-auto" />
 
         <button class="icon mr-4" @click="() => copy(content)">
           <carbon-copy />
@@ -20,29 +25,31 @@ const {copy} = useClipboard()
       <Editor
         v-model="content"
         :matches="matches"
-        class="flex-auto p-4"
+        class="flex-auto px-4 py-2"
+        :class="{ source: !!findRaw }"
       />
     </div>
     <div class="w-1px h-full bg-trueGray-400 bg-opacity-25" />
     <div class="w-1/2 h-full flex flex-col -m-1px">
-      <div>
-        <div class="label">
-          RESULT
-        </div>
-
-        <button class="icon mr-4" @click="toggleMode">
+      <div class="flex">
+        <button class="icon ml-4" @click="toggleMode">
           <carbon-transpose v-if="mode=='replace'" />
           <carbon-search v-else />
+          <div class="label">
+            {{ mode.toUpperCase() }}
+          </div>
         </button>
 
-         <button class="icon mr-4" @click="() => copy(fullResult)">
+        <div class="flex-auto" />
+
+        <button class="icon mr-4" @click="() => copy(fullResult)">
           <carbon-copy />
         </button>
       </div>
       <Editor
         :model-value="fullResult"
         :readonly="true"
-        class="flex-auto p-4"
+        class="flex-auto px-4 py-2"
       />
     </div>
 
@@ -58,6 +65,6 @@ const {copy} = useClipboard()
 
 <style lang="postcss" scoped>
 .label {
-  @apply py-3 px-4 opacity-50 text-sm inline-block;
+  @apply py-3 pl-2 pr-4 opacity-50 text-sm inline-block;
 }
 </style>

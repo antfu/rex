@@ -26,6 +26,7 @@ onMounted(() => {
   const cm = CodeMirror.fromTextArea(el.value!, {
     mode: mode.value,
     readOnly: readonly.value,
+    scrollbarStyle: 'null',
     extraKeys: {
       // @ts-expect-error
       Tab: inline.value ? false : undefined,
@@ -72,7 +73,7 @@ onMounted(() => {
 
 <style lang='postcss'>
 .editor {
-  @apply outline-none font-mono overflow-hidden;
+  @apply outline-none font-mono overflow-auto;
 }
 .CodeMirror {
   height: 100%;
@@ -87,6 +88,12 @@ onMounted(() => {
 }
 .CodeMirror-selected {
   background: rgba(125,125,125,0.2);
+}
+.source .CodeMirror-code span {
+  color: var(--fg-semi);
+}
+.match {
+  color: var(--fg) !important;
 }
 .match.full-even {
   border-bottom: 2px solid #e7d25e;

@@ -1,7 +1,10 @@
 <template>
-  <div class="flex flex-col h-full w-full overflow-hidden">
+  <ErrorPopup />
+  <div
+    class="grid h-screen w-screen overflow-hidden"
+    style="grid-template-rows: 1fr auto;"
+  >
     <SearchArea />
-    <ErrorPopup />
     <ResultArea class="flex flex-auto" />
   </div>
 </template>
