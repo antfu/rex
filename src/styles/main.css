@@ -1,3 +1,7 @@
+:root {
+  --fg: #222;
+}
+
 html,
 body,
 #app {
@@ -9,4 +13,23 @@ body,
 html.dark {
   background: #222;
   color: #ddd;
+  --fg: #ddd;
+}
+
+.gray-border {
+  @apply border border-gray-200 dark:border-gray-600 outline-none;
+}
+
+.input {
+  @apply !outline-none border border-transparent focus:border-orange-400;
+  @apply bg-trueGray-50 hover:bg-trueGray-100
+  @apply dark:(bg-trueGray-800 hover:bg-trueGray-700);
+}
+
+button.icon {
+  @apply outline-none opacity-50 hover:(opacity-100 text-orange-400);
+}
+
+[disabled] {
+  @apply !pointer-events-none !opacity-10;
 }
