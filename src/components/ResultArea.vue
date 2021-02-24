@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { content, fullResult, toggleMode, mode, applyResult, matches } from '~/logics'
+import { useClipboard } from '@vueuse/core'
+
+const {copy} = useClipboard()
 </script>
 
 <template>
@@ -9,6 +12,10 @@ import { content, fullResult, toggleMode, mode, applyResult, matches } from '~/l
         <div class="label">
           TEXT
         </div>
+
+        <button class="icon mr-4" @click="() => copy(content)">
+          <carbon-copy />
+        </button>
       </div>
       <Editor
         v-model="content"
@@ -23,9 +30,13 @@ import { content, fullResult, toggleMode, mode, applyResult, matches } from '~/l
           RESULT
         </div>
 
-        <button class="icon" @click="toggleMode">
+        <button class="icon mr-4" @click="toggleMode">
           <carbon-transpose v-if="mode=='replace'" />
           <carbon-search v-else />
+        </button>
+
+         <button class="icon mr-4" @click="() => copy(fullResult)">
+          <carbon-copy />
         </button>
       </div>
       <Editor
@@ -36,7 +47,7 @@ import { content, fullResult, toggleMode, mode, applyResult, matches } from '~/l
     </div>
 
     <div
-      class="absolute w-2em h-2em flex rounded-full border border-trueGray-400 border-opacity-25 bg-white cursor-pointer hover:shadow"
+      class="absolute w-2em h-2em flex rounded-full border border-trueGray-400 border-opacity-25 cursor-pointer hover:shadow bg-white dark:bg-trueGray-700"
       style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
       @click="applyResult"
     >

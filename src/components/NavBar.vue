@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isDark, toggleDark, history, cleanup } from '~/logics'
+import { isDark, toggleDark, history, cleanup, findRaw, replaceRaw } from '~/logics'
 </script>
 
 <template>
@@ -24,6 +24,7 @@ import { isDark, toggleDark, history, cleanup } from '~/logics'
     </button>
     <button
       class="mx-2 icon"
+      :disabled="!(findRaw || replaceRaw)"
       @click="cleanup"
     >
       <carbon-clean />
