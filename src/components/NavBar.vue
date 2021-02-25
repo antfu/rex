@@ -27,7 +27,7 @@ import { isDark, toggleDark, history, cleanup, findRaw, replaceRaw } from '~/log
       :disabled="!(findRaw || replaceRaw)"
       @click="cleanup"
     >
-      <carbon-clean />
+      <carbon-delete />
     </button>
     <div class="flex-auto" />
     <button class="mx-2 icon" @click="toggleDark">

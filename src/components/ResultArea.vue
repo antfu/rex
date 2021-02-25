@@ -10,7 +10,7 @@ const { copy } = useClipboard()
     <div class="w-1/2 h-full flex flex-col">
       <div class="flex">
         <div class="icon mr-4">
-          <carbon-text-align-justify class="ml-4" />
+          <carbon:text-annotation-toggle class="ml-4" />
           <div class="label">
             TEXT
           </div>
@@ -18,6 +18,13 @@ const { copy } = useClipboard()
 
         <div class="flex-auto" />
 
+        <button
+          v-if="content"
+          class="icon mr-4"
+          @click="() => content = ''"
+        >
+          <carbon-delete />
+        </button>
         <button class="icon mr-4" @click="() => copy(content)">
           <carbon-copy />
         </button>
