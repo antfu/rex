@@ -32,20 +32,33 @@ const motions = useMotions()
         class="flex mx-2"
         style="min-height: 60px;box-sizing: border-box;"
         :initial="{
-          x: 50,
+          x: 120,
           opacity: 0,
           marginBottom: -60
         }"
         :enter="{
           x: 0,
           opacity: 1,
-          marginBottom: 0
+          marginBottom: 0,
+          transition: {
+            x: {
+              delay: 200
+            },
+            opacity: {
+              delay: 200
+            }
+          }
         }"
         :leave="{
           x: -100,
           opacity: 0,
           dur: 200,
-          marginBottom: -60
+          marginBottom: -60,
+          transition: {
+            marginBottom: {
+              delay: 200
+            },
+          }
         }"
       >
         <Editor
