@@ -27,8 +27,8 @@ export default defineConfig({
     WindiCSS(),
     VitePWA({
       manifest: {
-        name: 'Rex',
-        short_name: 'Rex',
+        name: 'ReX',
+        short_name: 'ReX',
         theme_color: '#ffffff',
         icons: [
           {

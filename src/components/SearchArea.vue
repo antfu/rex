@@ -27,7 +27,7 @@ const motions = useMotions()
       @leave="(el, done) => motions.replaceBox.leave(done)"
     >
       <div
-        v-show="mode === 'replace'"
+        v-if="mode === 'replace'"
         v-motion="'replaceBox'"
         class="flex mx-2"
         style="min-height: 60px;box-sizing: border-box;"
@@ -37,11 +37,6 @@ const motions = useMotions()
           marginBottom: -60
         }"
         :enter="{
-          x: 0,
-          opacity: 1,
-          marginBottom: 0
-        }"
-        :visible="{
           x: 0,
           opacity: 1,
           marginBottom: 0
