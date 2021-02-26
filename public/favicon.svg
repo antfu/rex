@@ -1,9 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <style>
-    path { fill: #222; }
+    path {
+      fill: #222;
+    }
     @media (prefers-color-scheme: dark) {
-      path { fill: #ffffff; }
+      path {
+        fill: #ffffff;
+      }
     }
   </style>
-  <path d="M29.707 5.293l-3-3a1 1 0 0 0-1.414 0L19.586 8h-2.491a11.012 11.012 0 0 0-10.383 7.366L2.056 28.67a1 1 0 0 0 1.275 1.274l13.303-4.656A11.012 11.012 0 0 0 24 14.905v-2.49l5.707-5.708a1 1 0 0 0 0-1.414zm-7.414 6A1 1 0 0 0 22 12v2.905a9.01 9.01 0 0 1-6.027 8.495l-9.168 3.209L16 17.414L14.586 16L5.39 25.195L8.6 16.027A9.01 9.01 0 0 1 17.095 10H20a1 1 0 0 0 .707-.293L26 4.414L27.586 6z"></path>
+  <path d="M14 4H9v2h5v2h-4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h6V6a2.002 2.002 0 0 0-2-2zm0 8h-4v-2h4z">
+  </path>
+  <path d="M22 26v-8h-2v1h-2v2h2v5h-2v2h6v-2h-2z"></path>
+  <path d="M2 2h2v14H2z"></path>
+  <path d="M28 16h2v14h-2z"></path>
 </svg>

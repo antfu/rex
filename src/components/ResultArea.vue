@@ -7,9 +7,9 @@ const { copy } = useClipboard()
 
 <template>
   <div class="relative overflow-hidden">
-    <div class="w-1/2 h-full flex flex-col">
+    <div class="flex flex-col h-full w-1/2">
       <div class="flex">
-        <div class="icon mr-4">
+        <div class="mr-4 icon">
           <carbon:text-annotation-toggle class="ml-4" />
           <div class="label">
             TEXT
@@ -20,26 +20,26 @@ const { copy } = useClipboard()
 
         <button
           v-if="content"
-          class="icon mr-4"
+          class="mr-4 icon"
           @click="() => content = ''"
         >
           <carbon-delete />
         </button>
-        <button class="icon mr-4" @click="() => copy(content)">
+        <button class="mr-4 icon" @click="() => copy(content)">
           <carbon-copy />
         </button>
       </div>
       <Editor
         v-model="content"
         :matches="matches"
-        class="flex-auto px-4 py-2"
+        class="flex-auto py-2 px-4"
         :class="{ source: !!findRaw }"
       />
     </div>
-    <div class="w-1px h-full bg-trueGray-400 bg-opacity-25" />
-    <div class="w-1/2 h-full flex flex-col -m-1px">
+    <div class="bg-trueGray-400 bg-opacity-25 h-full w-1px" />
+    <div class="flex flex-col h-full -m-1px w-1/2">
       <div class="flex">
-        <button class="icon ml-4" @click="toggleMode">
+        <button class="ml-4 icon" @click="toggleMode">
           <carbon-transpose v-if="mode=='replace'" />
           <carbon-search v-else />
           <div class="label">
@@ -49,23 +49,24 @@ const { copy } = useClipboard()
 
         <div class="flex-auto" />
 
-        <button class="icon mr-4" @click="() => copy(fullResult)">
+        <button class="mr-4 icon" @click="() => copy(fullResult)">
           <carbon-copy />
         </button>
       </div>
       <Editor
         :model-value="fullResult"
         :readonly="true"
-        class="flex-auto px-4 py-2"
+        class="flex-auto py-2 px-4"
       />
     </div>
 
     <div
-      class="absolute w-2em h-2em flex rounded-full border border-trueGray-400 border-opacity-25 cursor-pointer hover:shadow bg-white dark:bg-trueGray-700"
+      v-if="fullResult !== content"
+      class="bg-white border border-trueGray-400 border-opacity-25 rounded-full cursor-pointer flex h-2em w-2em absolute dark:bg-trueGray-700 hover:shadow"
       style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
       @click="applyResult"
     >
-      <carbon-chevron-left class="m-auto hover:text-orange-400 pt-2px pr-1px" />
+      <carbon-chevron-left class="m-auto pt-2px pr-1px hover:text-orange-400" />
     </div>
   </div>
 </template>

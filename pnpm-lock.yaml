@@ -1,6 +1,6 @@
 dependencies:
   '@vueuse/core': 4.2.2_vue@3.0.6
-  '@vueuse/head': 0.3.0_vue@3.0.6
+  '@vueuse/head': 0.3.1_vue@3.0.6
   codemirror: 5.59.4
   vue: 3.0.6
   vue-router: 4.0.4_vue@3.0.6
@@ -17,12 +17,12 @@ devDependencies:
   pnpm: 5.18.1
   typescript: 4.2.2
   vite: 2.0.3
-  vite-plugin-components: 0.7.1_vite@2.0.3
+  vite-plugin-components: 0.7.3_vite@2.0.3
   vite-plugin-icons: 0.2.4_b18429545830119ebeea3091893a73e7
   vite-plugin-pages: 0.4.5_vite@2.0.3+vue@3.0.6
-  vite-plugin-pwa: 0.5.3
-  vite-plugin-windicss: 0.5.0_vite@2.0.3
-  vite-ssg: 0.8.10_6d40f31d98c35cdbcec25be1d8be682c
+  vite-plugin-pwa: 0.5.5
+  vite-plugin-windicss: 0.5.2_vite@2.0.3
+  vite-ssg: 0.8.11_1de1853444f1e35958ef0938d28e806b
 lockfileVersion: 5.2
 packages:
   /@antfu/eslint-config-basic/0.4.3_eslint@7.20.0:
@@ -203,7 +203,7 @@ packages:
       '@babel/helper-module-imports': 7.12.13
       '@babel/helper-plugin-utils': 7.13.0
       '@babel/traverse': 7.13.0
-      debug: 4.3.2
+      debug: 4.3.1
       lodash.debounce: 4.0.8
       resolve: 1.20.0
       semver: 6.3.0
@@ -1513,22 +1513,14 @@ packages:
       vue: '*'
     resolution:
       integrity: sha512-NMU3Vr4eBiNrPzCoUH5ptNj+DETg85Vtww0OJjaQEXobDTH28gzbLJseqCh4m3NYR92C5qlXRnzhSvWOoR/uLg==
-  /@vueuse/head/0.2.3_vue@3.0.6:
-    dependencies:
-      vue: 3.0.6
-    dev: true
-    peerDependencies:
-      vue: '>=3'
-    resolution:
-      integrity: sha512-bAFZyUlT6+CVIwMcUw3TrtuhG/BfjS+UV5T8oH30tGPnVvqIsNuRCnNt9EbVd1GxHRDZD0K41515B5NiXPt84A==
-  /@vueuse/head/0.3.0_vue@3.0.6:
+  /@vueuse/head/0.3.1_vue@3.0.6:
     dependencies:
       vue: 3.0.6
     dev: false
     peerDependencies:
       vue: '>=3'
     resolution:
-      integrity: sha512-ScOVxtAZOAC7Rkb3A5XikUc9fw9rp+e+qfoVW+3Uqn3q4VrGp6ax46TjNct/e4KyQGQJyYsGg8f0ikCzi6eCsw==
+      integrity: sha512-SaKib18YjFLrErxHYDxLXsBBY4/Q93b6rYer8WRMaRSBqotmZYGEBaoRURhtVYfneBf5dX9O9P3EdjkSn+gL0g==
   /@vueuse/shared/4.2.2_vue@3.0.6:
     dependencies:
       vue-demi: 0.6.1_vue@3.0.6
@@ -1537,16 +1529,16 @@ packages:
       vue: '*'
     resolution:
       integrity: sha512-yudh4jt0SxaW0i3j2iumI8GTloA8aUpLwGaBw9Xv2rQCdZvOZpXpvpGEz8EsMK793ySs+d5S4/opItlxuzjtSg==
-  /@windicss/plugin-utils/0.5.0:
+  /@windicss/plugin-utils/0.5.2:
     dependencies:
-      esbuild: 0.8.51
-      esbuild-register: 2.0.0_esbuild@0.8.51
+      esbuild: 0.8.52
+      esbuild-register: 2.0.0_esbuild@0.8.52
       fast-glob: 3.2.5
       micromatch: 4.0.2
       windicss: 2.2.0
     dev: true
     resolution:
-      integrity: sha512-d2oi4cY+PV0mcQ2wij1nI+Ku0s6Zw2/+zllxX8TtMyEknYqe5zHE69DbUyCjIyVg2DYCje2vIc8XnTWYDFEkjQ==
+      integrity: sha512-LMkBs1M4GQb0p3z8PKCC+GRjZGy2w3lTIpDZsISAFOny6JcfrO6gvXYOF64Uj5n2wP+NLYWAIJR9rtWP3B9hew==
   /abab/2.0.5:
     dev: true
     resolution:
@@ -2328,9 +2320,9 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==
-  /esbuild-register/2.0.0_esbuild@0.8.51:
+  /esbuild-register/2.0.0_esbuild@0.8.52:
     dependencies:
-      esbuild: 0.8.51
+      esbuild: 0.8.52
       joycon: 2.2.5
       pirates: 4.0.1
       source-map-support: 0.5.19
@@ -2346,6 +2338,12 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-MVIom8fgL1+B6iGqWtrG7QJ1gqd64BycxounlsX1kR/IcIITaSlTo7gghKpg4a+bnxkpo0dwcikuvk4MVSA9ww==
+  /esbuild/0.8.52:
+    dev: true
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-b5KzFweLLXoXQwdC/e2+Z80c8uo2M5MgP7yQEEebkFw6In4T9CvYcNoM2ElvJt8ByO04zAZUV0fZkXmXoi2s9A==
   /escalade/3.1.1:
     dev: true
     engines:
@@ -4960,7 +4958,7 @@ packages:
       '0': node >=0.6.0
     resolution:
       integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=
-  /vite-plugin-components/0.7.1_vite@2.0.3:
+  /vite-plugin-components/0.7.3_vite@2.0.3:
     dependencies:
       chokidar: 3.5.1
       debug: 4.3.2
@@ -4971,7 +4969,7 @@ packages:
     peerDependencies:
       vite: ^2.0.0-beta.69
     resolution:
-      integrity: sha512-4sCScMzrouAsW7MkP/L4e1uzmJwsqnSewYJ3QIOeBdiTjHHFNT+vUsA9rgKg7R9vo3a+P9Y7VmGGgaVAgDvCaw==
+      integrity: sha512-OomlwTsyZn8M1xhth7gUxOE2FJZ1v/wn/TQhcJiFCxcsFnxvRiCMleRHzFrJUdRcN0QiM3lTCX3sKRthdOd+9w==
   /vite-plugin-icons/0.2.4_b18429545830119ebeea3091893a73e7:
     dependencies:
       '@iconify/json': 1.1.308
@@ -5003,7 +5001,7 @@ packages:
       vue: ^3.0.0
     resolution:
       integrity: sha512-bx41hp/5dwS6gU4Jyv4awCBjtoYeuC2z+ErtjkmIKAh7bmpPtom87rFVzynZ+9ulil/bqyIV+N6ZFdap0iDjtQ==
-  /vite-plugin-pwa/0.5.3:
+  /vite-plugin-pwa/0.5.5:
     dependencies:
       debug: 4.3.2
       fast-glob: 3.2.5
@@ -5011,22 +5009,22 @@ packages:
       workbox-build: 6.1.1
     dev: true
     resolution:
-      integrity: sha512-xGh0gIgzczvYNj8ED5HhpJ2iT5kMiieim2qI8kT/3+rfo83hTyuzhEICkljIbhausvOaGxtzLKWE8RS6cUg0Fw==
-  /vite-plugin-windicss/0.5.0_vite@2.0.3:
+      integrity: sha512-gwPg+pDm87iMOLORz/fOZiNNWNXhHFrMPW34XpX3F9JLl6ytcNZ6cJMYJ1FRKQPtVADqkbZjk3g3AOi1oI6HKQ==
+  /vite-plugin-windicss/0.5.2_vite@2.0.3:
     dependencies:
-      '@windicss/plugin-utils': 0.5.0
+      '@windicss/plugin-utils': 0.5.2
       vite: 2.0.3
       windicss: 2.2.0
     dev: true
     peerDependencies:
       vite: ^2.0.1
     resolution:
-      integrity: sha512-8mT03wppL3/ehyNEIJHVpMlWsS8jlSBaW/zSUuGjFiUC0zhB0GSzTbQkvtpJLqlFvvU4oHF4uhvN9tb7Uoq1ww==
-  /vite-ssg/0.8.10_6d40f31d98c35cdbcec25be1d8be682c:
+      integrity: sha512-9C3/Q32bNcGUwQ4AKcIG6otu8rQDlND7XnjsqbP5b6ndAPYow8yevGqghEQbaOfTrGrwT1VuOawKtb2JJLIzjw==
+  /vite-ssg/0.8.11_1de1853444f1e35958ef0938d28e806b:
     dependencies:
       '@vue/compiler-sfc': 3.0.6_vue@3.0.6
       '@vue/server-renderer': 3.0.6_vue@3.0.6
-      '@vueuse/head': 0.2.3_vue@3.0.6
+      '@vueuse/head': 0.3.1_vue@3.0.6
       chalk: 4.1.0
       fs-extra: 9.1.0
       html-minifier: 4.0.0
@@ -5043,11 +5041,12 @@ packages:
     peerDependencies:
       '@vue/compiler-sfc': ^3.0.4
       '@vue/server-renderer': ^3.0.4
+      '@vueuse/head': ^0.3.1
       vite: ^2.0.0-beta.3
       vue: ^3.0.4
       vue-router: ^4.0.1
     resolution:
-      integrity: sha512-lmNbDrzF73v4u/hlaGuPNI8n5RqZ9D4X4Ypa8k92/x6PPq1CqRQkpKW/7Onc65hIZq27GH5FifLI8nhoQYCaIA==
+      integrity: sha512-f6emDScba4up09U1qEiztKoUbzXijDdkGIIoXq9geTKaQzCKg+GM8oyDL66MMBvXq2SwEuf6qKkpIKjWVsBAGQ==
   /vite/2.0.3:
     dependencies:
       esbuild: 0.8.51
@@ -5442,18 +5441,18 @@ specifiers:
   '@vue/compiler-sfc': ^3.0.6
   '@vue/server-renderer': ^3.0.6
   '@vueuse/core': ^4.2.2
-  '@vueuse/head': ^0.3.0
+  '@vueuse/head': ^0.3.1
   codemirror: ^5.59.4
   cross-env: ^7.0.3
   eslint: ^7.20.0
   pnpm: ^5.18.1
   typescript: ^4.2.2
   vite: ^2.0.3
-  vite-plugin-components: ^0.7.1
+  vite-plugin-components: ^0.7.3
   vite-plugin-icons: ^0.2.4
   vite-plugin-pages: ^0.4.5
-  vite-plugin-pwa: ^0.5.3
-  vite-plugin-windicss: ^0.5.0
-  vite-ssg: ^0.8.10
+  vite-plugin-pwa: ^0.5.5
+  vite-plugin-windicss: ^0.5.2
+  vite-ssg: ^0.8.11
   vue: ^3.0.6
   vue-router: ^4.0.4

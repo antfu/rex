@@ -29,7 +29,11 @@ html.dark {
 }
 
 button.icon {
-  @apply outline-none opacity-50 hover:(opacity-100 text-orange-400);
+  @apply outline-none opacity-50 align-middle hover:(opacity-100 text-orange-400);
+}
+
+a.icon {
+  @apply outline-none opacity-50 align-middle hover:(opacity-100 text-orange-400);
 }
 
 [disabled] {

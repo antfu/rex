@@ -30,6 +30,9 @@ import { isDark, toggleDark, history, cleanup, findRaw, replaceRaw } from '~/log
       <carbon-delete />
     </button>
     <div class="flex-auto" />
+    <a class="mx-2 icon" href="https://github.com/antfu/rex" target="_blank">
+      <carbon-logo-github />
+    </a>
     <button class="mx-2 icon" @click="toggleDark">
       <carbon-moon v-if="isDark" />
       <carbon-sun v-else />
