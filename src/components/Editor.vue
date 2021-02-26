@@ -87,7 +87,8 @@ onMounted(() => {
   color: inherit;
 }
 .CodeMirror pre.CodeMirror-placeholder {
-  opacity: 0.5;
+  opacity: 0.3;
+  font-style: italic;
 }
 .CodeMirror-cursor {
   border-color: var(--fg);

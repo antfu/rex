@@ -30,7 +30,7 @@ html.dark {
 
 
 .icon {
-  @apply opacity-50 px-2 rounded h-8.5 mr-2 inline-block align-middle;
+  @apply opacity-50 px-2 rounded h-8.5 mr-2 inline-block align-middle transition-all duration-200;
   outline: none !important;
 }
 .icon:not(.static) {

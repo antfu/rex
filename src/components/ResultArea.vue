@@ -41,8 +41,9 @@ const { copy } = useClipboard()
         v-model="content"
         :matches="matches"
         :wrapping="linewrap"
-        class="flex-auto py-2 px-4"
         :class="{ source: !!findRaw }"
+        placeholder="Paste your content here to transform..."
+        class="flex-auto py-2 px-4"
       />
     </div>
     <div class="bg-trueGray-400 bg-opacity-25 h-full w-1px" />
@@ -66,7 +67,7 @@ const { copy } = useClipboard()
             :class="{active: takeGroup === 0}"
             @click="takeGroup = 0"
           >
-            <codicon:symbol-array />
+            <mdi:format-letter-matches />
           </button>
           <button
             class="icon"
@@ -102,6 +103,7 @@ const { copy } = useClipboard()
         :model-value="fullResult"
         :readonly="true"
         :wrapping="linewrap"
+        placeholder="Empty result"
         class="flex-auto py-2 px-4"
       />
     </div>
