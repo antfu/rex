@@ -28,12 +28,19 @@ html.dark {
   @apply dark:(bg-trueGray-700 hover:bg-trueGray-600);
 }
 
-button.icon {
-  @apply outline-none opacity-50 align-middle hover:(opacity-100 text-orange-400);
-}
 
-a.icon {
-  @apply outline-none opacity-50 align-middle hover:(opacity-100 text-orange-400);
+.icon {
+  @apply opacity-50 px-2 rounded h-8.5 mr-2 inline-block align-middle;
+  outline: none !important;
+}
+.icon:not(.static) {
+  @apply hover:(!opacity-100 text-orange-500) pointer-cursor;
+}
+.icon:not(.relax) {
+  @apply w-8.5;
+}
+button.icon.active {
+  @apply bg-orange-300 bg-opacity-10 text-orange-500 !opacity-75;
 }
 
 [disabled] {

@@ -4,36 +4,36 @@ import { isDark, toggleDark, history, cleanup, findRaw, replaceRaw } from '~/log
 
 <template>
   <nav class="py-1 px-4 pt-2 flex">
-    <h1 class="inline-block ml-1 mr-2 font-mono mt-1">
+    <h1 class="inline-block ml-1 mr-2 font-mono mt-1.5">
       <b>Re</b>X
     </h1>
 
     <button
-      class="mx-2 icon"
+      class="icon"
       :disabled="!history.canUndo.value"
       @click="history.undo"
     >
       <carbon-undo />
     </button>
     <button
-      class="mx-2 icon"
+      class="icon"
       :disabled="!history.canRedo.value"
       @click="history.redo"
     >
       <carbon-redo />
     </button>
     <button
-      class="mx-2 icon"
+      class="icon"
       :disabled="!(findRaw || replaceRaw)"
       @click="cleanup"
     >
       <carbon-delete />
     </button>
     <div class="flex-auto" />
-    <a class="mx-2 icon" href="https://github.com/antfu/rex" target="_blank">
-      <carbon-logo-github />
+    <a class="icon" href="https://github.com/antfu/rex" target="_blank">
+      <carbon-logo-github class="mt-1.5" />
     </a>
-    <button class="mx-2 icon" @click="toggleDark">
+    <button class="icon" @click="toggleDark">
       <carbon-moon v-if="isDark" />
       <carbon-sun v-else />
     </button>

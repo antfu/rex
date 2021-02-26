@@ -1,13 +1,18 @@
 import { ref, computed } from 'vue'
 import { useDebounce, useLocalStorage, useRefHistory } from '@vueuse/core'
+import DEFAULT_CONTENT from '../../README.md?raw'
 
-export const findRaw = useLocalStorage('find', '')
+const DEFAULT_FIND = '(<.*>)(.*)(</.*>)'
+const DEFAULT_MODE = 'take'
+
+export const findRaw = useLocalStorage('find', DEFAULT_FIND)
 export const flags = useLocalStorage('flags', 'gm')
 export const replaceRaw = useLocalStorage('replace', '')
-export const content = useLocalStorage('content', '')
-export const mode = useLocalStorage<'replace' | 'take'>('mode', 'replace')
+export const content = useLocalStorage('content', DEFAULT_CONTENT)
+export const mode = useLocalStorage<'replace' | 'take'>('mode', DEFAULT_MODE)
 export const takeJoint = useLocalStorage('take-join', '\n')
 export const takeGroup = useLocalStorage('take-group', 0)
+export const linewrap = useLocalStorage('linewrap', true)
 export const history = useRefHistory(content, { clone: false })
 
 export const error = ref<Error | null>(null)

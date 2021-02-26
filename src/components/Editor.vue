@@ -12,24 +12,21 @@ const props = defineProps<{
   placeholder?: string
   readonly?: boolean
   inline?: boolean
+  wrapping?: boolean
   matches?: RegExpMatchArray[]
 }>()
 const el = ref<HTMLTextAreaElement | null>()
 const text = useVModel(props, 'modelValue')
-const mode = useVModel(props, 'mode')
-const readonly = useVModel(props, 'readonly')
-const inline = useVModel(props, 'inline')
-const placeholder = useVModel(props, 'placeholder')
-const matches = useVModel(props, 'matches')
 
 onMounted(() => {
   const cm = CodeMirror.fromTextArea(el.value!, {
-    mode: mode.value,
-    readOnly: readonly.value,
+    mode: props.mode,
+    readOnly: props.readonly,
     scrollbarStyle: 'null',
+    lineWrapping: props.wrapping,
     extraKeys: {
       // @ts-expect-error
-      Tab: inline.value ? false : undefined,
+      Tab: props.inline ? false : undefined,
     },
   })
 
@@ -39,35 +36,44 @@ onMounted(() => {
 
   let decorations: CodeMirror.TextMarker<CodeMirror.MarkerRange>[] = []
 
-  watch(matches, (m = []) => {
-    decorations.forEach(i => i.clear())
-    decorations = Array.from(m)
-      .map((i, idx) => {
-        const start = i.index
-        if (start == null)
-          return null!
-        const end = start + i[0].length
-        return cm.markText(
-          cm.posFromIndex(start),
-          cm.posFromIndex(end),
-          { className: `match full-${idx % 2 === 0 ? 'even' : 'odd'}` },
-        )
-      })
-      .filter(i => i)
-  }, { immediate: true })
+  watch(() => props.mode, v => cm.setOption('mode', v))
+  watch(() => props.readonly, v => cm.setOption('readOnly', v))
+  watch(() => props.wrapping, v => cm.setOption('lineWrapping', v))
+  watch(
+    text,
+    (v) => {
+      if (v !== cm.getValue())
+        cm.replaceRange(v, cm.posFromIndex(0), cm.posFromIndex(Infinity))
+    },
+    { immediate: true },
+  )
 
-  watch(mode, v => cm.setOption('mode', v))
-  watch(readonly, v => cm.setOption('readOnly', v))
-  watch(text, (v) => {
-    if (v !== cm.getValue())
-      cm.replaceRange(v, cm.posFromIndex(0), cm.posFromIndex(Infinity))
-  }, { immediate: true })
+  watch(
+    () => props.matches,
+    (m = []) => {
+      decorations.forEach(i => i.clear())
+      decorations = Array.from(m)
+        .map((i, idx) => {
+          const start = i.index
+          if (start == null)
+            return null!
+          const end = start + i[0].length
+          return cm.markText(
+            cm.posFromIndex(start),
+            cm.posFromIndex(end),
+            { className: `match full-${idx % 2 === 0 ? 'even' : 'odd'}` },
+          )
+        })
+        .filter(i => i)
+    },
+    { immediate: true },
+  )
 })
 </script>
 
 <template>
   <div class="editor relative">
-    <textarea ref="el" :placeholder="placeholder" />
+    <textarea ref="el" :placeholder="props.placeholder" />
   </div>
 </template>
 
