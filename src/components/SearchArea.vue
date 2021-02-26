@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { findRaw, flags, replaceRaw } from '~/logics'
+import { useMotions } from '@vueuse/motion'
+import { findRaw, flags, replaceRaw, mode } from '~/logics'
+
+const motions = useMotions()
 </script>
 
 <template>
@@ -8,7 +11,6 @@ import { findRaw, flags, replaceRaw } from '~/logics'
     <div class="flex mx-2">
       <Editor
         v-model="findRaw"
-        mode="regex"
         class="flex-auto input rounded p-2 m-2"
         placeholder="Find..."
         :inline="true"
@@ -20,13 +22,44 @@ import { findRaw, flags, replaceRaw } from '~/logics'
         type="text"
       >
     </div>
-    <div class="flex mx-2">
-      <Editor
-        v-model="replaceRaw"
-        class="flex-auto input rounded p-2 m-2"
-        placeholder="Replace..."
-        :inline="true"
-      />
-    </div>
+    <transition
+      :css="false"
+      @leave="(el, done) => motions.replaceBox.leave(done)"
+    >
+      <div
+        v-show="mode === 'replace'"
+        v-motion="'replaceBox'"
+        class="flex mx-2"
+        style="min-height: 60px;box-sizing: border-box;"
+        :initial="{
+          x: 50,
+          opacity: 0,
+          marginBottom: -60
+        }"
+        :enter="{
+          x: 0,
+          opacity: 1,
+          marginBottom: 0
+        }"
+        :visible="{
+          x: 0,
+          opacity: 1,
+          marginBottom: 0
+        }"
+        :leave="{
+          x: -100,
+          opacity: 0,
+          dur: 200,
+          marginBottom: -60
+        }"
+      >
+        <Editor
+          v-model="replaceRaw"
+          class="flex-auto input rounded p-2 m-2"
+          placeholder="Replace..."
+          :inline="true"
+        />
+      </div>
+    </transition>
   </div>
 </template>

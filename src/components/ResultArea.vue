@@ -108,9 +108,18 @@ const { copy } = useClipboard()
 
     <div
       v-if="fullResult !== content"
+      v-motion
       title="Apply result"
       class="bg-white border border-trueGray-400 border-opacity-25 rounded-full cursor-pointer flex h-2em w-2em absolute dark:bg-trueGray-700 hover:shadow"
-      style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
+      style="top: 50%; left: 50%; transform-origin: left top;"
+      :initial="{
+        scale: 0,
+        x: '-50%',
+        y: '-50%'
+      }"
+      :enter="{
+        scale: 1
+      }"
       @click="applyResult"
     >
       <carbon-chevron-left class="m-auto pt-2px pr-1px hover:text-orange-400" />

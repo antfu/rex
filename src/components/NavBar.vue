@@ -31,7 +31,7 @@ import { isDark, toggleDark, history, cleanup, findRaw, replaceRaw } from '~/log
     </button>
     <div class="flex-auto" />
     <a class="icon" href="https://github.com/antfu/rex" target="_blank">
-      <carbon-logo-github class="mt-1.5" />
+      <carbon-logo-github class="mt-2" />
     </a>
     <button class="icon" @click="toggleDark">
       <carbon-moon v-if="isDark" />

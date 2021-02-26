@@ -12,6 +12,7 @@ devDependencies:
   '@vitejs/plugin-vue': 1.1.4_@vue+compiler-sfc@3.0.6
   '@vue/compiler-sfc': 3.0.6_vue@3.0.6
   '@vue/server-renderer': 3.0.6_vue@3.0.6
+  '@vueuse/motion': 1.1.0_vue@3.0.6
   cross-env: 7.0.3
   eslint: 7.20.0
   pnpm: 5.18.1
@@ -1121,7 +1122,7 @@ packages:
   /@nodelib/fs.walk/1.2.6:
     dependencies:
       '@nodelib/fs.scandir': 2.1.4
-      fastq: 1.10.1
+      fastq: 1.11.0
     dev: true
     engines:
       node: '>= 8'
@@ -1466,6 +1467,16 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Y4amPwRevUiiNQDho0cq1Ith9q6UU5N6CD6YiXkHIboFPeXEiGvH3ULJWjFzlGqn1eUV1AReNJpFJrhjtQNc7g==
+  /@vue/composition-api/1.0.0-rc.2_vue@3.0.6:
+    dependencies:
+      tslib: 2.1.0
+      vue: 3.0.6
+    dev: true
+    optional: true
+    peerDependencies:
+      vue: '>= 2.5 < 3'
+    resolution:
+      integrity: sha512-R4XEvT+qXiT/lnsLzqhjkR/L/ALuNeeQPZqredpLduGKwZtmt2l5I3kT1W+c/157hrY732eFlsPUGz/q9vFaYg==
   /@vue/reactivity/3.0.6:
     dependencies:
       '@vue/shared': 3.0.6
@@ -1508,7 +1519,6 @@ packages:
     dependencies:
       '@vueuse/shared': 4.2.2_vue@3.0.6
       vue-demi: 0.6.1_vue@3.0.6
-    dev: false
     peerDependencies:
       vue: '*'
     resolution:
@@ -1521,10 +1531,22 @@ packages:
       vue: '>=3'
     resolution:
       integrity: sha512-SaKib18YjFLrErxHYDxLXsBBY4/Q93b6rYer8WRMaRSBqotmZYGEBaoRURhtVYfneBf5dX9O9P3EdjkSn+gL0g==
+  /@vueuse/motion/1.1.0_vue@3.0.6:
+    dependencies:
+      '@vueuse/core': 4.2.2_vue@3.0.6
+      popmotion: 9.2.1
+      vue: 3.0.6
+      vue-demi: 0.6.1_vue@3.0.6
+    dev: true
+    optionalDependencies:
+      '@vue/composition-api': 1.0.0-rc.2_vue@3.0.6
+    peerDependencies:
+      vue: ^2.6.12 || >=3.0.0-rc.1
+    resolution:
+      integrity: sha512-psKKXqkecsUgYsWmU/kf8hDV1AvVw4W+mAs7oFJeuX9KvqHsccfW8dkrgMY+jS47hzKOOcj0gySuAzmiNk4G+g==
   /@vueuse/shared/4.2.2_vue@3.0.6:
     dependencies:
       vue-demi: 0.6.1_vue@3.0.6
-    dev: false
     peerDependencies:
       vue: '*'
     resolution:
@@ -2739,12 +2761,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
-  /fastq/1.10.1:
+  /fastq/1.11.0:
     dependencies:
       reusify: 1.0.4
     dev: true
     resolution:
-      integrity: sha512-AWuv6Ery3pM+dY7LYS8YIaCiQvUaos9OB1RyNgaOWnaX+Tik7Onvcsf8x8c+YtDeT0maYLniBip2hox5KtEXXA==
+      integrity: sha512-7Eczs8gIPDrVzT+EksYBcupqMyxSHXXrHOLRRxU2/DicV8789MRBRR8+Hc2uWzUupOs4YS4JzBmBxjjCVBxD/g==
   /file-entry-cache/6.0.1:
     dependencies:
       flat-cache: 3.0.4
@@ -2809,6 +2831,10 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
+  /framesync/5.1.0:
+    dev: true
+    resolution:
+      integrity: sha512-31sDH8LxSFoLKDYENzKdI+YJD4vV8sMBpwcAW0/6Es2jZBQBdlqbFnqrYczpsnzpqG+y6EqYPvgFMI2ZDdlnyQ==
   /fs-extra/9.1.0:
     dependencies:
       at-least-node: 1.0.0
@@ -2982,6 +3008,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+  /hey-listen/1.0.8:
+    dev: true
+    resolution:
+      integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
   /hosted-git-info/2.8.8:
     dev: true
     resolution:
@@ -3952,6 +3982,15 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-pGOoysRHIarMHkF8ZxRwCN39ZWSffivlK+Bo4mkuFeRSKwQhF2e04n/PxQttyj6kfN0nR+4RkxFcY7Ts+Y10ZA==
+  /popmotion/9.2.1:
+    dependencies:
+      framesync: 5.1.0
+      hey-listen: 1.0.8
+      style-value-types: 4.0.3
+      tslib: 1.14.1
+    dev: true
+    resolution:
+      integrity: sha512-kplHK5z2LwYkUXNMCC4+tSYuuAXcG3oatKdsEzJzc1r0I2wM5UnYKITO1ZUnmmFy84VJqIZuoBXwJrWuZuAKkg==
   /postcss-modules-extract-imports/2.0.0:
     dependencies:
       postcss: 7.0.35
@@ -4668,6 +4707,13 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
+  /style-value-types/4.0.3:
+    dependencies:
+      hey-listen: 1.0.8
+      tslib: 1.14.1
+    dev: true
+    resolution:
+      integrity: sha512-Yk2kpwC88W2HRlJXegWlT0pfLzjKWMjj8DI4s6m2VsZsL1Ht2oUyHl1EgTYIRlFiAnC4rBSQO+EEn0YiYAxQDw==
   /supports-color/5.5.0:
     dependencies:
       has-flag: 3.0.0
@@ -4798,6 +4844,11 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+  /tslib/2.1.0:
+    dev: true
+    optional: true
+    resolution:
+      integrity: sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
   /tsutils/3.20.0_typescript@4.2.2:
     dependencies:
       tslib: 1.14.1
@@ -5064,7 +5115,6 @@ packages:
   /vue-demi/0.6.1_vue@3.0.6:
     dependencies:
       vue: 3.0.6
-    dev: false
     hasBin: true
     peerDependencies:
       vue: ^2.6.0 || >=3.0.0-rc.1
@@ -5442,6 +5492,7 @@ specifiers:
   '@vue/server-renderer': ^3.0.6
   '@vueuse/core': ^4.2.2
   '@vueuse/head': ^0.3.1
+  '@vueuse/motion': ^1.1.0
   codemirror: ^5.59.4
   cross-env: ^7.0.3
   eslint: ^7.20.0
