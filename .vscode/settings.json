@@ -7,5 +7,6 @@
     "Vitesse"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
-  "volar.tsPluginStatus": false
+  "volar.tsPluginStatus": false,
+  "svg.preview.background": "transparent"
 }
